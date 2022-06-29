@@ -9,9 +9,12 @@ body {
 	border-radius: 50px;
 	display: flex;
 	flex-wrap: nowrap;
+	margin-left:10%;
 }
 .Nav > div {
 	/* order: 0; */
 	flex-direction: row;
 	text-align: center;
+	margin-left: 16%;
+	margin-top:2%;
 }
