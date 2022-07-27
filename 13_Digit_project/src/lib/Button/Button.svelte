@@ -21,6 +21,6 @@
         color: white;
         font-family: 'Palanquin Dark', sans-serif;
         font-size: 3vmax;
-        margin:2vmax;
+        margin:2vmax;   
     }
 </style>
