@@ -1,17 +1,26 @@
 <script>
     import Carousel from '$lib/Carousel/Carousel.svelte';
     import Navigation from '$lib/Navigation/Navigation.svelte';
-    import CarouselInfoBox from "$lib/Info-Box/Carousel-Info-Box.svelte";
+    import SearchBar from '$lib/Search-Bar/SearchBar.svelte';
 </script>
-
-<Navigation />
-<Carousel />
-<CarouselInfoBox />
+<Navigation/>    
+<Carousel/>
+<SearchBar/>
+<div id="fex"></div>
 
 <style>
      * {
 margin: 0;
 padding: 0;
+background-color: #E8E8E8;
+
 }
+
+#fex {
+    width:100vw;
+    height:100vh;
+    z-index: 0;
+}
+
 
 </style>

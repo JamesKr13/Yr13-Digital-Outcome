@@ -2,18 +2,18 @@
 
 </script>
 
-<div class="Nav">
-    <div class="links"><a href="">Donation</a></div>
-    <div class="links"><a href="">About</a></div>
-    <div class="links"><a href="">Home</a></div>
-    <div class="links"><a href="">Login</a></div>
-    <div class="links"><a href="">Sign Up</a></div>
+<div class="Nav" style="margin-top:1vmax;">
+    <div class="links"><a href="1">Donation</a></div>
+    <div class="links"><a href="1">About</a></div>
+    <div class="links"><a href="1">Home</a></div>
+    <div class="links"><a href="1">Login</a></div>
+    <div class="links"><a href="1">Sign Up</a></div>
 </div>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Palanquin&display=swap');
     * {
-        margin: 0;
+        margin-top:1vmax;
         padding: 0;
     }
     .Nav {
@@ -32,7 +32,7 @@
         text-align: center;
         font-family:'Palanquin', sans-serif;
         font-style: normal;
-        font-size: 3vmax;
+        font-size: 2vmax;
         text-decoration: none;
         flex-direction: row;
         flex-wrap: nowrap;

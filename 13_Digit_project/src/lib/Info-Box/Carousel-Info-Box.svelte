@@ -3,8 +3,7 @@
 </script>
 <div id="bottom-nav">
     <div id="info"> 1234567</div>
-    <Button />
-    
+    <Button/>
 </div>
 <style>
     *{
@@ -17,12 +16,7 @@
         align-items: center;
         justify-content: space-between;
     }
-    div{
-        display: flex;
-        height: 20vh;
-        flex-direction: column;
-        justify-self: flex-end;
-    }
+
     #info {
         background-color: #3C3C3C;
         opacity: 30%;
