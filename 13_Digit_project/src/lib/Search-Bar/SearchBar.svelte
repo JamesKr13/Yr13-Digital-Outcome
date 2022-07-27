@@ -5,6 +5,10 @@
 </form>
 
 <style>
+    form {
+        border-radius: 15vmax;
+        border: 1vmax solid red;
+    }
     #SearchBar {
         width: 80vw;
         height: 10vh;
