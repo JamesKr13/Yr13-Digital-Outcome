@@ -13,10 +13,14 @@
         justify-self: end;
 ;
     }
-    button:active {
+    button:hover {
         background-color: #4dbae8;
-
     }
+    button:active {
+        background-color: hotpink;
+    
+    }
+
     p {
         color: white;
         font-family: 'Palanquin Dark', sans-serif;

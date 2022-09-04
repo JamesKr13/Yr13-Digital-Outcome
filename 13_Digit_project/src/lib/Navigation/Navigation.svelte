@@ -16,7 +16,15 @@
         margin-top:1vmax;
         padding: 0;
     }
+    .links:hover > a, .links {
+        color: #30A8DB;
+        font-size: 2.2vmax;
+        padding-left: 1.6vmax;
+        padding-right: 1.6vmax;
+    }
     .Nav {
+        box-shadow: 0.2vmax 0.2vmax 1vmax #3C3C3C;
+        z-index: 1000;
         width: 80vmax;
         height: 5vmax;
         background-color: whitesmoke;
@@ -28,16 +36,21 @@
         margin-left: 10vmax;
         margin-right: 10vmax;
     }
+    .links {
+        margin:auto
+    }
     .links > a, .links{
         text-align: center;
         font-family:'Palanquin', sans-serif;
         font-style: normal;
         font-size: 2vmax;
+        padding-left: 2vmax;
+        padding-right: 2vmax;
         text-decoration: none;
         flex-direction: row;
+        justify-content: center;
         flex-wrap: nowrap;
-        color: black;
-        margin: auto;
+        color:black;
     }   
     * {
 margin: 0;
