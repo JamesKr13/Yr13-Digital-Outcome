@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    
+    <title>Home</title>
+
+    <link rel='icon' type='image/png' href="{% static 'frontend/favicon.png' %}"> <!-- <-- here -->
+    <link rel='stylesheet' href="{% static 'frontend/global.css' %}"> <!-- <-- here -->
+    <link rel='stylesheet' href="{% static 'frontend/bundle.css' %}"> <!-- <-- here -->
+
+    <script defer src="{% static 'frontend/bundle.js' %}"></script> <!-- <-- here -->
+	{% comment %} %sveltekit.head% {% endcomment %}
+</head>
+
+<body style="margin:0;padding:0;overflow-x:hidden;background-color: #E8E8E8;">
+	{% comment %} <div>%sveltekit.body%</div> {% endcomment %}
+
+    {% if user.is_authenticated %}
+    <script>
+        document.cookie = "login=true";
+    </script>
+    {% comment %} Hi {{ user.username }}!
+    <p><a href="{% url 'logout' %}">Log Out</a></p> {% endcomment %}
+  {% else %}
+  <script>
+    document.cookie = "login=false";
+  </script>
+    {% comment %} <p>You are not logged in</p>
+    <a href="{% url 'login' %}">Log In</a> {% endcomment %}
+  {% endif %}
+  <script>var test = {{ dataJSON }}
+    alert(test)
+    </script>
+  {% comment %} <script>
+    var MEDIA_URL = {{MEDIA_URL}}
+    alert(MEDIA_URL)
+    document.getElementsByClassName("Profile-Pic")[0].src = "media/pics/ANNO_PROFILE.png"
+</script> {% endcomment %}
+<h4 id='alldata'></h4>
+
+
+</body>
+</html>
