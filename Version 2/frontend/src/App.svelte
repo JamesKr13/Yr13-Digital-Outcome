@@ -1,4 +1,5 @@
 <script src="https://kit.fontawesome.com/447c1c7470.js" crossorigin="anonymous">
+    import { onMount } from "svelte";
     import Carousel from "./Componets/Carousel/Carousel.svelte";
     import Navigation from "./Componets/Navigation/Navigation.svelte";
     import SearchBar from "./Componets/Search-Bar/SearchBar.svelte";
@@ -6,30 +7,29 @@
     import UpComming from "./Componets/UpComming/UpComming.svelte";
     import Footer from "./Componets/Footer/Footer.svelte";
     import CarouselInfoBox from "./Componets/Info-Box/Carousel-Info-Box.svelte";
-    function url_type (url_check) {
-        if (window.location.href.includes(url_check)) {
-        return true
-        }
-    else false
-}
+    onMount(async () => {
+        let resp = await fetch("home/").then((res) => res.json());
+        console.log(resp);
+        apimessage = JSON.stringify(resp);
+    });
 const Pages = {
     home: "home",
     login: "login",
     signup: "signup"
 }
+
 </script>
-<div class="Box">
- 
+<!-- <div class="Box"> -->
+<!-- <Navigation/>
 {#if url_type("home")}
-<Navigation/>
+
 <Carousel/>
 <SearchBar/>
 <Suggest/>
 <UpComming/>
 {/if}
-<Footer/>
-</div>
-<!-- <div id="fex"></div> -->
+<Footer/> -->
+<!-- </div> -->
 
 <style>
      * {

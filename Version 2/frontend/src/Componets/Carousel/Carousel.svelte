@@ -30,7 +30,7 @@
     <div class="x"><img src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="stuff">
         <div class="A">
             <div id="bottom-nav">
-                <div id="info">
+                <div class="info">
                     <h1>Rock Club</h1>
                     <p>Collecting Rock since never</p>
                 </div>
@@ -41,7 +41,7 @@
     <div><img src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="stuff">
         <div class="A">
             <div id="bottom-nav">
-                <div id="info">
+                <div class="info">
                     <h1>Rock Club</h1>
                     <p>Collecting Rock since never</p>
                 </div>
@@ -51,7 +51,7 @@
     </div>
     <div><img src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="stuff">
         <div class="A"><div id="bottom-nav">
-            <div id="info"><h1>Rock Club</h1><p>Collecting Rock since never</p></div>
+            <div class="info"><h1>Rock Club</h1><p>Collecting Rock since never</p></div>
             <Button/></div></div></div>
     <div slot="next" on:click={showNextPage} class="custom-arrow custom-arrow-next">
         <i />
