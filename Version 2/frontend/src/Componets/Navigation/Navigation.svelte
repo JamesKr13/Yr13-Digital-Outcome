@@ -13,7 +13,7 @@
 <div class="Nav" style="margin-top:1vmax;">
     <div class="links"><a href="None">Donation</a></div>
     <div class="links"><a href="None">About</a></div>
-    <div class="links"><a href="home">Home</a></div>
+    <div class="links"><a href="None">Home</a></div>
     {#if !decodeURIComponent(document.cookie).includes("login=true")}
     <div class="links"><a href="login" on:click={login}>Login</a></div>
     <div class="links"><a href="register">Sign Up</a></div>

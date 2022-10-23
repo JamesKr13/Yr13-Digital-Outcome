@@ -47,6 +47,13 @@ class ClubView(TemplateView):
         return HttpResponse(t.render(c, request))
 
 def get_random_club(request):
+    data = Clubs.objects.order_by('?')[:6]
+    image = []
+    for club in data:
+        try:
+            image.append(ClubImage.objects.filter(club=club)[0])
+        except IndexError:
+            image.append("")
     # indexs = [random.randint(0,Clubs.count()-1),random.randint(0,Clubs.count()-1),random.randint(0,Clubs.count()-1),random.randint(0,Clubs.count()-1)]
     # random_Clubs = list(set([random.randint(0,clubs.count()),
     #                 random.randint(0,clubs.count()).
@@ -58,7 +65,7 @@ def get_random_club(request):
     # for tb_json_index in range(0,response_clubs.len()):
         # dataJSON["data"+str(tb_json_index)] = response_clubs[tb_json_index]
     # dataJSON["test"] = clubs[0]
-    return render(request,'spa/index.html',{"clubs": Clubs.objects.order_by('?')[:3]})
+    return render(request,'spa/index.html',{"clubs": data,"images": image})
        
         
 

@@ -2,16 +2,16 @@
 
 <div class="box">
     <div class="suggest">
-        <img src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="">
-        <div class="text"></div>
+        <img class="suggest-img" src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="">
+        <div class="text"><h1></h1><p></p></div>
     </div>
     <div class="suggest">
-        <img src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="">
-        <div class="text"></div>
+        <img class="suggest-img" src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="">
+        <div class="text"><h1></h1><p></p></div>
     </div>
     <div class="suggest">
-        <img src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="">
-        <div class="text"></div>
+        <img class="suggest-img" src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="">
+        <div class="text"><h1></h1><p></p></div>
     </div>
 </div>
 
@@ -29,7 +29,7 @@
         margin-top: auto;
         margin-bottom: auto;
         width: 20vmax;
-        height: 23vmax;
+        height: 30vmax;
         border-radius: 3vmax;
         display: flex;
         flex-direction: column;
@@ -45,6 +45,7 @@
         border-top-left-radius: 3vmax;
     }
     .text {
+        text-align: center;
         background-color: #fff;
         width: 100%;
         height: 40%;

@@ -18,44 +18,33 @@
 	{% comment %} %sveltekit.head% {% endcomment %}
 </head>
 
-<body style="margin:0;padding:0;overflow-x:hidden;background-color: #E8E8E8;">
+<body onload="load()" style="margin:0;padding:0;overflow-x:hidden;background-color: #E8E8E8;">
 	{% comment %} <div>%sveltekit.body%</div> {% endcomment %}
   
-    
-    {% if user.is_authenticated %}
-    <script>
-        document.cookie = "login=true";
-    </script>
-    {% comment %} Hi {{ user.username }}!
-    <p><a href="{% url 'logout' %}">Log Out</a></p> {% endcomment %}
-  {% else %}
-
-    {% comment %} <p>You are not logged in</p>
-    <a href="{% url 'login' %}">Log In</a> {% endcomment %}
-  {% endif %}
-
-  {% comment %} <script>
-    var MEDIA_URL = {{MEDIA_URL}}
-    alert(MEDIA_URL)
-    document.getElementsByClassName("Profile-Pic")[0].src = "media/pics/ANNO_PROFILE.png"
-</script> {% endcomment %}
-{% block content %}
-{% endblock %}
+{% comment %} {% block content %}
+{% endblock %} {% endcomment %}
 
 
 </body>
 
 </html>
 <script>
-  console.log(document.getElementsByClassName('Nav'))
-  let counter = 0;
-  {% for club in clubs %}
-  counter += 1;
-  var info_box = document.getElementById('info');
-  console.log(document.getElementById('info'));
-  console.log(info_box);
-  {% comment %} console.log(info_box.getElementsByTagName('h1')) {% endcomment %}
-  {% comment %} info_box.getElementsByTagName('h1')[0].innerHTML = club.club_name; {% endcomment %}
-  console.log("club")
-  {% endfor %}
+  function load() {
+    let all_clubs = document.getElementsByClassName("text")
+    let imgsTags = document.getElementsByClassName("suggest-img")
+    var counter = 0;
+    {% for club in clubs %}
+    console.log(all_clubs[counter].getElementsByTagName("h1")[0])
+    all_clubs[counter].getElementsByTagName("h1")[0].innerHTML = '{{ club.club_name }}';
+    all_clubs[counter].getElementsByTagName("p")[0].innerHTML = '{{ club.breif }}';
+    counter+=1;
+    {% endfor %}
+    counter = 0
+    {% for img in images %}
+    if ("{{ img.photo }}" != "") {
+    imgsTags[counter].src = '../media/{{ img.photo }}';
+    }
+    counter+=1;
+    {% endfor %}
+  }
 </script>

@@ -5,7 +5,7 @@ import random
 from Club.views import get_random_club
 
 def SpaView(request):
-    # template_name = "spa/index.html"
+    # template_name = "spa/app.html"
     return get_random_club(request)
 
  

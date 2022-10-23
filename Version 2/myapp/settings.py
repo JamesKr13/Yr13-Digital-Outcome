@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-xl8t&4&zuss0yxs90en#nwb3-vt5%**(!s_cn)oa!bo#&#h9-$
 # DEBUG = "DJANGO_DEBUG" in os.environ and os.environ["DJANGO_DEBUG"] == "ON"
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost",'127.0.0.1']
 
 
 # Application definition
@@ -62,8 +62,8 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 ROOT_URLCONF = "myapp.urls"
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-LOGIN_REDIRECT_URL = '/home'
-LOGOUT_REDIRECT_URL = "/home"
+LOGIN_REDIRECT_URL = 'home/'
+LOGOUT_REDIRECT_URL = "home/"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -141,7 +141,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 logging_level = (
     "INFO" if "LOGGING_LEVEL" not in os.environ else os.environ["LOGGING_LEVEL"]
 )
-
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
