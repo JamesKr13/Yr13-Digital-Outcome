@@ -2,15 +2,15 @@
 
 <div class="box">
     <div class="suggest">
-        <img class="suggest-img" src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="">
+        <img class="suggest-img" src="" alt="">
         <div class="text"><h1></h1><p></p></div>
     </div>
     <div class="suggest">
-        <img class="suggest-img" src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="">
+        <img class="suggest-img" src="" alt="">
         <div class="text"><h1></h1><p></p></div>
     </div>
     <div class="suggest">
-        <img class="suggest-img" src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="">
+        <img class="suggest-img" src="" alt="">
         <div class="text"><h1></h1><p></p></div>
     </div>
 </div>

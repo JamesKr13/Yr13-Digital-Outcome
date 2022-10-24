@@ -27,31 +27,34 @@
     <div slot="prev" on:click={showPrevPage} class="custom-arrow custom-arrow-prev">
         <i />
       </div>
-    <div class="x"><img class="carousel-img" src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="stuff">
+    <div class="x"><img class="carousel-img" src="" alt="stuff">
         <div class="A">
             <div id="bottom-nav">
                 <div class="info">
-                    <h1>Rock Club</h1>
-                    <p>Collecting Rock since never</p>
+                    <h1></h1>
+                    <p></p>
                 </div>
                 <Button/>
             </div>
         </div>
     </div>
-    <div><img class="carousel-img" src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="stuff">
+    <div><img class="carousel-img" src="" alt="stuff">
         <div class="A">
             <div id="bottom-nav">
                 <div class="info">
-                    <h1>Rock Club</h1>
-                    <p>Collecting Rock since never</p>
+                    <h1></h1>
+                    <p></p>
                 </div>
                 <Button/>
             </div>
         </div>
     </div>
-    <div><img class="carousel-img" src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="stuff">
+    <div><img class="carousel-img" src="" alt="stuff">
         <div class="A"><div id="bottom-nav">
-            <div class="info"><h1>Rock Club</h1><p>Collecting Rock since never</p></div>
+            <div class="info">
+                <h1></h1>
+                <p></p>
+            </div>
             <Button/></div></div></div>
     <div slot="next" on:click={showNextPage} class="custom-arrow custom-arrow-next">
         <i />
@@ -81,10 +84,12 @@
     }
 
     #info {
+        position: absolute;
         background-color: #3C3C3C;
         opacity: 80%;
         width: 48vw;
         height: 25vh;
+        z-index: 300;
         justify-self: flex-end;
 
     }

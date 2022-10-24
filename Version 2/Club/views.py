@@ -47,25 +47,22 @@ class ClubView(TemplateView):
         return HttpResponse(t.render(c, request))
 
 def get_random_club(request):
-    data = Clubs.objects.order_by('?')[:6]
+    all_data = Clubs.objects.order_by('?')[:9]
+    data = all_data[0:6]
+    c_data = all_data[6:9]
     image = []
     for club in data:
         try:
             image.append(ClubImage.objects.filter(club=club)[0])
         except IndexError:
             image.append("")
-    # indexs = [random.randint(0,Clubs.count()-1),random.randint(0,Clubs.count()-1),random.randint(0,Clubs.count()-1),random.randint(0,Clubs.count()-1)]
-    # random_Clubs = list(set([random.randint(0,clubs.count()),
-    #                 random.randint(0,clubs.count()).
-    #                 random.randint(0,clubs.count()),
-    #                 random.randint(0,clubs.count()),
-    #                 random.randint(0,clubs.count())]))
-    # response_clubs = [dumps(clubs[pk]) for pk in random_clubs]
-    # dataJSON = {}
-    # for tb_json_index in range(0,response_clubs.len()):
-        # dataJSON["data"+str(tb_json_index)] = response_clubs[tb_json_index]
-    # dataJSON["test"] = clubs[0]
-    return render(request,'spa/index.html',{"clubs": data,"images": image})
+    c_images = []     
+    for club in c_data:
+        try:
+            c_images.append(ClubImage.objects.filter(club=club)[0])
+        except IndexError:
+            c_images.append("")
+    return render(request,'spa/index.html',{"clubs": data,"images": image,"c_clubs": c_data,"c_images":c_images})
        
         
 

@@ -26,15 +26,15 @@
         </div>
     <div class="suggest">
         <div class="text"><h1></h1><p></p></div>
-        <img class="suggest-img" src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="">
+        <img class="suggest-img" src="" alt="">
     </div>
     <div class="suggest">
         <div class="text"><h1></h1><p></p></div>
-        <img class="suggest-img" src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="">
+        <img class="suggest-img" src="" alt="">
     </div>
     <div class="suggest">
         <div class="text"><h1></h1><p></p></div>
-        <img class="suggest-img" src="https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e_400x400.jpg" alt="">
+        <img class="suggest-img" src="" alt="">
     </div>
     <div slot="next" on:click={showNextPage} class="custom-arrow custom-arrow-next">
         <i class="fa-solid fa-angle-right fa-7x"></i>

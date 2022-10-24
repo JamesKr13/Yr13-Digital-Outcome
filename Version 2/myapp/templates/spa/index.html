@@ -45,6 +45,28 @@
     imgsTags[counter].src = '../media/{{ img.photo }}';
     }
     counter+=1;
+    
     {% endfor %}
+    let carouselTags = document.getElementsByClassName("carousel-img")
+    counter = 0
+    {% for img in c_images %}
+    console.log("../media/{{ img.photo }}")
+    if ("{{ img.photo }}" != "") {
+      
+      carouselTags[counter].src = '../media/{{ img.photo }}';
+      console.log(carouselTags[counter].src)
+      }
+      counter += 1
+      {% endfor %}
+      let all_c_clubs = document.getElementsByClassName("info");
+      counter = 0
+      {% for c in c_clubs %}
+      all_c_clubs[counter].getElementsByTagName("h1")[0].innerHTML = '{{ c.club_name }}';
+      all_c_clubs[counter].getElementsByTagName("p")[0].innerHTML = '{{ c.breif }}';
+      counter +=1
+      {% endfor %}
+      console.log( all_c_clubs[0]);
+      console.log( all_c_clubs[1]);
+      console.log( all_c_clubs[2]);
   }
 </script>
