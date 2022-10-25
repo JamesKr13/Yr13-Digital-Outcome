@@ -6,6 +6,7 @@
     import UpComming from "./Componets/UpComming/UpComming.svelte";
     import Footer from "./Componets/Footer/Footer.svelte";
     import CarouselInfoBox from "./Componets/Info-Box/Carousel-Info-Box.svelte";
+    import ClubPage from "./Componets/Club_page/club_page.svelte";
 </script>
 <!-- <div class="Box"> -->
 <Navigation/>
@@ -14,6 +15,9 @@
 <SearchBar/>
 <Suggest/>
 <UpComming/>
+{/if}
+{#if window.location.href.includes("club")}
+<ClubPage/>
 {/if}
 <Footer/>
 <!-- </div> -->

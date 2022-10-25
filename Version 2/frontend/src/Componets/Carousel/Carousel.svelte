@@ -31,8 +31,8 @@
         <div class="A">
             <div id="bottom-nav">
                 <div class="info">
-                    <h1></h1>
-                    <p></p>
+                    <h1>test stuff</h1>
+                    <p>this is a test</p>
                 </div>
                 <Button/>
             </div>
@@ -42,8 +42,8 @@
         <div class="A">
             <div id="bottom-nav">
                 <div class="info">
-                    <h1></h1>
-                    <p></p>
+                    <h1>test stuff</h1>
+                    <p>this is a test</p>
                 </div>
                 <Button/>
             </div>
@@ -52,8 +52,8 @@
     <div><img class="carousel-img" src="" alt="stuff">
         <div class="A"><div id="bottom-nav">
             <div class="info">
-                <h1></h1>
-                <p></p>
+                <h1>test stuff</h1>
+                    <p>this is a test</p>
             </div>
             <Button/></div></div></div>
     <div slot="next" on:click={showNextPage} class="custom-arrow custom-arrow-next">

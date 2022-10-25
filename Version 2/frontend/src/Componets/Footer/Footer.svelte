@@ -11,13 +11,14 @@
     </ul>
     <ul class="footer-goups">
         <h1>About</h1>
-        <li class="about"><a href="">1234567890</a></li>
-        <li class="about"><a href="">1234567890</a></li>
-        <li class="about"><a href="">1234567890</a></li>
+        <li class="about"><a href=""></a>About Us</li>
+        <li class="about"><a href="">Your community</a></li>
+        <li class="about"><a href="">Gettign Involved</a></li>
     </ul>
     <ul class="footer-goups">
         <h1>Report</h1>
         <li class="report"><a href="">Report Club</a></li>
+        <li class="report"><a href="">Report a User</a></li>
     </ul>
 </footer>
 
@@ -35,8 +36,12 @@
         font-family:'Palanquin', sans-serif;
         color: #fff;
         list-style-type: none;
-    }    a {
+    }    
+    a {
         text-decoration: none;
+        font-family:'Palanquin', sans-serif;
+        color: #fff;
+        list-style-type: none;
         }
     a:hover {
         color: #30A8DB;

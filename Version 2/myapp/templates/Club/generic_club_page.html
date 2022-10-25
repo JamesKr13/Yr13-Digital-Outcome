@@ -9,38 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> {% endcomment %}
-    
+  
     <title>{{ Name }} Club</title>
   </head>
-  <body class="container">
+  {% block content %} 
+  <body class="container" onload="club_load()">
 
-{% block content %}
-    <div>{% for image in Images %}
-      <img class="Image_1" src='../media/{{ image.photo }}'/>
-      {% endfor %}
-      <div id="central_text">{{ Name }} Club</div>
-      <buton type="button">Join Now</button>
-    </div>
-    {% block load_clubs %}
-    <div class="row">
-        {% comment %} {{ }} {% endcomment %}
-    {% comment %} {%  for post in query %}
-        <script>console.log("1")</script>
-        <li>{{ post.title }}</li>
-        <li>{{ post.name }}</li>
-    {% endfor %} {% endcomment %}
-      {% comment %} {% load_clubs %} {% endcomment %}
-      <p>
-        {{ Name }} 
-        {{ breif }}
-        
-        {% comment %} {% load_clubs %} {% endcomment %}
-      </p>
-      
-      </div>
-      {% endblock %}
 
   </body>
+  {% endblock %}
 </html>
 
 <style>
@@ -68,7 +45,22 @@ img {
   font-size: 5vmax;
 }
 </style>
-{% endblock %}
+
+<script>
+  function club_load() {
+    console.log("test")
+    var counter = 0;
+    {% for img in Images%}
+    if (counter != 0) {
+      console.log("{{ img.photo }}")
+    document.getElementsByClassName("mainimg")[0].src = "../media{{ img.photo }}"
+    }
+    document.getElementsByClassName("mainimg")[0].src = "../media{{ img.photo }}"
+
+    {% endfor %}
+  }
+</script>
+
 {% comment %} <style>body {
     background-color: red;  
 } {% endcomment %}

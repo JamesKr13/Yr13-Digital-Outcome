@@ -17,8 +17,9 @@
     <title>Home</title>
 	{% comment %} %sveltekit.head% {% endcomment %}
 </head>
-
+{% block onload %}
 <body onload="load()" style="margin:0;padding:0;overflow-x:hidden;background-color: #E8E8E8;">
+
 	{% comment %} <div>%sveltekit.body%</div> {% endcomment %}
   
 {% comment %} {% block content %}
@@ -26,10 +27,13 @@
 
 
 </body>
-
+{% endblock %}
 </html>
+
 <script>
+
   function load() {
+    if (window.location.href.includes("home")) {
     let all_clubs = document.getElementsByClassName("text")
     let imgsTags = document.getElementsByClassName("suggest-img")
     var counter = 0;
@@ -68,5 +72,21 @@
       console.log( all_c_clubs[0]);
       console.log( all_c_clubs[1]);
       console.log( all_c_clubs[2]);
+    }
+    else if (window.location.href.includes("club")) {
+      document.getElementsByClassName("club")[0].innerHTML = "{{ Name }}"
+      var counter = 0;
+      {% for img in Images%}
+      console.log("test")
+      if (counter == 0) {
+      document.getElementsByClassName("mainimg")[0].src = "../media/{{ img.photo }}"
+      }
+      document.getElementsByClassName("img")[0].src = "../media/{{ img.photo }}"
+      counter+= 1
+  
+      {% endfor %}
+      document.getElementsByClassName("textarea")[0].innerHTML = "{{ breif }}"
+    }
   }
+  
 </script>

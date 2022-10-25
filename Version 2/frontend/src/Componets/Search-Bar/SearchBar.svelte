@@ -91,12 +91,18 @@ import {clickOutside} from "../JS_fn/JS_fn.js"
     }
 
     #Search {
-        padding: 6px 10px;
+        width: 50vmax;
+        height: 50vmax;
+        border: 1px solid #00B4CC;
+        background: #00B4CC;
+        text-align: center;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
         background-color: #fff;
         cursor: pointer;
         border:none;
-        border-bottom-right-radius: 50vmax;
-        border-top-right-radius: 50vmax;
+        border-radius: 50vmax,50vmax,50vmax,50vmax;
 
     }
     #Search-Bar, .item {
@@ -108,6 +114,7 @@ import {clickOutside} from "../JS_fn/JS_fn.js"
         background-color: #fff;
         border-bottom-left-radius: 50vmax;
         border-top-left-radius: 50vmax;
+        border-radius: 50vmax;
 
     }
     #Search-Bar:focus{
