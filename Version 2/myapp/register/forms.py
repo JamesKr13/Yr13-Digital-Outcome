@@ -9,9 +9,10 @@ class NewUserForm(forms.ModelForm):
 	email = forms.EmailField(required=True)
 	password = forms.CharField(widget=forms.PasswordInput)
 	password_2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
+	print(User)
 	class Meta:
 		model = User
-		fields = ("username", "email")
+		fields = ("username", "email","password")
 
 	
  
@@ -36,6 +37,7 @@ class NewUserForm(forms.ModelForm):
 	def save(self, commit=True):
 		user = super(NewUserForm, self).save(commit=False)
 		user.email = self.cleaned_data['email']
+		user.set_password(user.password)
 		if commit:
 			user.save()
 		return user

@@ -1,8 +1,8 @@
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
 from django.core import serializers# Create your models here.
 import re
+
 class Image(models.Model):
     title = models.CharField(max_length=20)
     photo = models.ImageField(upload_to='pics')
@@ -17,7 +17,7 @@ class Clubs(models.Model):
     breif = models.CharField(max_length=300)
     
     def __str__(self):
-        return (self.club_name,self.breif)
+        return self.club_name
 
 class ClubImage(models.Model):
     title = models.CharField(max_length=20)
@@ -27,4 +27,7 @@ class ClubImage(models.Model):
     
 class UserProfile(models.Model):
     club_id = models.CharField(max_length=20)
-    photo = models.ImageField(upload_to='pics')
+    photo = models.ImageField(null=True, blank=True,upload_to='pics')
+    
+    def __str__(self):
+        return self.photo.url

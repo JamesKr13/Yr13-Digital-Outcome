@@ -1,22 +1,8 @@
 <script src="https://smtpjs.com/v3/smtp.js">
         export let join ;
 
-function sendEmail() {
-    alert("sedning")
-    Email.send({
-        Host : "smtp.mailtrap.io",
-        Username : "David Mcgunigiall",
-        Password : "<Mailtrap password>",
-        To : document.getElementsByClassName("text")[2].value,
-        From : "myclubswelly@gmail.com",
-        Subject : "Test Email",
-        Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
-    }).then(
-    message => alert(message)
-    );
-    
-}
-sendEmail()
+
+        
 </script>
 <div class="Join">
     <h1 class="join_info">Join:</h1>
@@ -30,7 +16,7 @@ sendEmail()
         <ul class="user_inputs">
             <input type="text" class="inputs"><input type="text" class="inputs"><input type="text" class="inputs">
         </ul>
-        <button class="go" onclick="sendEmail" >Submit</button>
+        <button class="go" on:click|once={sendEmail} >Submit</button>
         <!-- <div class="first_name">
             <p id="first_name">First Name:</p>
             <textarea name="" id="" cols="30" rows="1" class="entername"></textarea>

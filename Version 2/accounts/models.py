@@ -6,18 +6,19 @@ from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 
     
 class UserManager(BaseUserManager):
-    def create_user(self, email,username, password=None):
+    def create_user(self, email,username, password):
         if not email:
             raise ValueError('Users must have an email address')
         if not username: 
             raise ValueError('Users must have an username')
-        user = self.model(
+        user = CustomUser(
             email=self.normalize_email(email),
-            username=username
+            username=username,
+            password=password
         )
 
-        user.set_password(password)
-        user.save(using=self._db)
+        user.set_password(user.password)
+        user.save()
         return user
 
     def create_staffuser(self, email,username, password):
@@ -26,7 +27,7 @@ class UserManager(BaseUserManager):
         """
         user = self.create_user(
             email,username,
-            password=password,
+            password,
         )
         user.staff = True
         user.save(using=self._db)
@@ -46,14 +47,14 @@ class UserManager(BaseUserManager):
         return user
 class CustomUser(AbstractBaseUser):
     club = models.ForeignKey("Club.Clubs",verbose_name=('Club'),null=True,blank=True, on_delete=models.CASCADE)
-    profile_pic = models.ImageField(upload_to='pics')
+    profile_pic = models.ImageField(upload_to='pics', null=True,blank=True)
     username = models.CharField(unique=True,max_length=50)
     email = models.EmailField(
         verbose_name='email address',
         max_length=255,
         unique=True,
     )
-    
+    password = models.CharField(max_length=50, null=True)
     is_active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False) # a admin user; non super-user
     admin = models.BooleanField(default=False) # a superuser

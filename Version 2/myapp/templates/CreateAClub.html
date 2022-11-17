@@ -1,0 +1,53 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+
+    <title>Login</title>
+
+    <link rel='icon' type='image/png' href="{% static 'frontend/favicon.png' %}"> <!-- <-- here -->
+    <link rel='stylesheet' href="{% static 'frontend/global.css' %}"> <!-- <-- here -->
+    <link rel='stylesheet' href="{% static 'frontend/bundle.css' %}"> <!-- <-- here -->
+
+    <script defer src="{% static 'frontend/bundle.js' %}"></script> <!-- <-- here -->
+	{% comment %} %sveltekit.head% {% endcomment %}
+</head>
+<body style="margin:0;padding:0;overflow-x:hidden;background-color: #E8E8E8;">
+    <div class="container">
+        <form method="POST"  enctype="multipart/form-data">
+          <fieldset>
+            <legend>Form</legend>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </fieldset>
+          {% if img_obj %}  
+          <h3>Succesfully uploaded : {{img_obj.caption}}</h3>  
+          <script>console.log("{{img_obj.image.url}}")</script>
+          <img src="../media/pic/{{img_obj.image.url}}" alt="connect" style="max-height:300px">  
+      {% endif %}  
+        </form>
+    </div>
+   
+
+</body>
+</html>
+<style>
+    body {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+    #excess {
+        display: inline-block;
+        margin-bottom: 14%;
+    }
+    form {
+        margin-top: 13%;
+        display: inline-block;
+    }
+</style>

@@ -26,7 +26,7 @@
 <div class="Login-Nav" style="margin-top:1vmax;">
     <div class="dropdown-content">
         <a class="dropdown_item" href="/accounts/logout">logout</a>
-        <a class="dropdown_item" href="/club/Create-Club/">Create A Club</a>
+        <a class="dropdown_item" href="/Create-Club/">Create A Club</a>
         <a  class="dropdown_item" href="dropdown_item">Delete Account</a>
       </div>
     <!-- <div class="links" href="/accounts/logout">Sign Out</div> -->

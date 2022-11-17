@@ -69,7 +69,7 @@ AUTHENTICATION_BACKENDS = [
 CRISPY_TEMPLATE_PACK="bootstrap4"
 ROOT_URLCONF = "myapp.urls"
 MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 LOGIN_REDIRECT_URL = '/home/'
 LOGOUT_REDIRECT_URL = "/home/"
 TEMPLATES = [
@@ -188,8 +188,7 @@ LOGGING = {
 }
 #DataFlair
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'myclubswelly@gmail.com'
-EMAIL_HOST_PASSWORD = 'MyClub@Welly123'
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '0be644c2cf75ea'
+EMAIL_HOST_PASSWORD = '49db01c975f7f8'
+EMAIL_PORT = '2525'

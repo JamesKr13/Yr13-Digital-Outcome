@@ -14,7 +14,9 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Clubs,ClubImage
 from django import template
-
+from .forms import ClubForm
+from accounts.models import CustomUser
+from django.contrib.auth.models import User
 
 from myapp.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
@@ -51,7 +53,7 @@ class ClubView(TemplateView):
 
 def get_random_club(request):
     all_data = Clubs.objects.order_by('?')[:10]
-    data = all_data[0:7]
+    data = all_data[0:6]
     c_data = all_data[6:10]
     image = []
     for club in data:
@@ -60,9 +62,12 @@ def get_random_club(request):
         except IndexError:
             image.append("")
     c_images = []     
+    car_img_clubs = []
     for club in c_data:
         try:
             c_images.append(ClubImage.objects.filter(club=club)[0])
+            
+            
         except IndexError:
             c_images.append("")
     return render(request,'spa/index.html',{"clubs": data,"images": image,"c_clubs": c_data,"c_images":c_images})
@@ -92,3 +97,14 @@ def searching(request,string):
         if string.lower() in club.club_name.lower():
             i_data.append(club)
     return render(request,'spa/index.html',{"clubs": i_data})
+
+
+def club_form(request):
+    form = ClubForm(request.POST, request.FILES)
+    if form.is_valid():
+        saved=form.save()
+        img_obj = saved[1]
+        return render(request, "CreateAClub.html", {'form': form, 'img_obj': img_obj})
+    else:
+        form = ClubForm()
+    return render(request, 'CreateAClub.html', {'form': form})

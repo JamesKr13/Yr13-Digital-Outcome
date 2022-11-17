@@ -21,17 +21,17 @@ def logout_user(request):
 class LoginView(FormView):
     """login view"""
 
-    form_class = forms.LoginForm
+    form_class = forms.ClubForm
     success_url = '/home'
     template_name = 'login.html'
     
     def form_valid(self, form):
         """ process user login"""
         credentials = form.cleaned_data
-
+        print(credentials)
         user = authenticate(username=credentials['username'],
                             password=credentials['password'])
-
+        print(user)
         if user is not None:
             login(self.request, user)
             return HttpResponseRedirect(self.success_url)

@@ -1462,23 +1462,23 @@ var app = (function () {
     			attr_dev(a0, "href", "/accounts/logout");
     			add_location(a0, file$e, 27, 8, 971);
     			attr_dev(a1, "class", "dropdown_item svelte-1v3yi66");
-    			attr_dev(a1, "href", "/club/Create-Club/");
+    			attr_dev(a1, "href", "/Create-Club/");
     			add_location(a1, file$e, 28, 8, 1039);
     			attr_dev(a2, "class", "dropdown_item svelte-1v3yi66");
     			attr_dev(a2, "href", "dropdown_item");
-    			add_location(a2, file$e, 29, 8, 1116);
+    			add_location(a2, file$e, 29, 8, 1111);
     			attr_dev(div0, "class", "dropdown-content svelte-1v3yi66");
     			add_location(div0, file$e, 26, 4, 932);
     			attr_dev(div1, "class", "username svelte-1v3yi66");
-    			add_location(div1, file$e, 33, 4, 1298);
+    			add_location(div1, file$e, 33, 4, 1293);
     			attr_dev(div2, "class", "email svelte-1v3yi66");
-    			add_location(div2, file$e, 34, 4, 1337);
+    			add_location(div2, file$e, 34, 4, 1332);
     			attr_dev(div3, "class", "user-info svelte-1v3yi66");
-    			add_location(div3, file$e, 32, 4, 1270);
+    			add_location(div3, file$e, 32, 4, 1265);
     			attr_dev(img, "class", "Profile-Pic svelte-1v3yi66");
     			if (!src_url_equal(img.src, img_src_value = "../media/pics/ANNO_PROFILE.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Profile");
-    			add_location(img, file$e, 35, 4, 1387);
+    			add_location(img, file$e, 35, 4, 1382);
     			attr_dev(div4, "class", "Login-Nav svelte-1v3yi66");
     			set_style(div4, "margin-top", "1vmax");
     			add_location(div4, file$e, 25, 0, 878);
@@ -2689,6 +2689,8 @@ var app = (function () {
     	let input2;
     	let t10;
     	let button;
+    	let mounted;
+    	let dispose;
 
     	const block = {
     		c: function create() {
@@ -2718,35 +2720,34 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Submit";
     			attr_dev(h1, "class", "join_info svelte-1dhjekl");
-    			add_location(h1, file$9, 21, 4, 605);
+    			add_location(h1, file$9, 7, 4, 122);
     			attr_dev(p, "class", "messege svelte-1dhjekl");
-    			add_location(p, file$9, 22, 4, 643);
+    			add_location(p, file$9, 8, 4, 160);
     			attr_dev(li0, "class", "type svelte-1dhjekl");
-    			add_location(li0, file$9, 25, 12, 784);
+    			add_location(li0, file$9, 11, 12, 301);
     			attr_dev(li1, "class", "type svelte-1dhjekl");
-    			add_location(li1, file$9, 26, 12, 831);
+    			add_location(li1, file$9, 12, 12, 348);
     			attr_dev(li2, "class", "type svelte-1dhjekl");
-    			add_location(li2, file$9, 27, 12, 877);
+    			add_location(li2, file$9, 13, 12, 394);
     			attr_dev(ul0, "class", "entries svelte-1dhjekl");
-    			add_location(ul0, file$9, 24, 8, 750);
+    			add_location(ul0, file$9, 10, 8, 267);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "class", "inputs svelte-1dhjekl");
-    			add_location(input0, file$9, 30, 12, 968);
+    			add_location(input0, file$9, 16, 12, 485);
     			attr_dev(input1, "type", "text");
     			attr_dev(input1, "class", "inputs svelte-1dhjekl");
-    			add_location(input1, file$9, 30, 46, 1002);
+    			add_location(input1, file$9, 16, 46, 519);
     			attr_dev(input2, "type", "text");
     			attr_dev(input2, "class", "inputs svelte-1dhjekl");
-    			add_location(input2, file$9, 30, 80, 1036);
+    			add_location(input2, file$9, 16, 80, 553);
     			attr_dev(ul1, "class", "user_inputs svelte-1dhjekl");
-    			add_location(ul1, file$9, 29, 8, 930);
+    			add_location(ul1, file$9, 15, 8, 447);
     			attr_dev(button, "class", "go svelte-1dhjekl");
-    			attr_dev(button, "onclick", "sendEmail");
-    			add_location(button, file$9, 32, 8, 1095);
+    			add_location(button, file$9, 18, 8, 612);
     			attr_dev(div0, "class", "join_space svelte-1dhjekl");
-    			add_location(div0, file$9, 23, 4, 716);
+    			add_location(div0, file$9, 9, 4, 233);
     			attr_dev(div1, "class", "Join svelte-1dhjekl");
-    			add_location(div1, file$9, 20, 0, 581);
+    			add_location(div1, file$9, 6, 0, 98);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2771,12 +2772,19 @@ var app = (function () {
     			append_dev(ul1, input2);
     			append_dev(div0, t10);
     			append_dev(div0, button);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", sendEmail, { once: true }, false, false);
+    				mounted = true;
+    			}
     		},
     		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div1);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -2791,25 +2799,10 @@ var app = (function () {
     	return block;
     }
 
-    function sendEmail() {
-    	alert("sedning");
-
-    	Email.send({
-    		Host: "smtp.mailtrap.io",
-    		Username: "David Mcgunigiall",
-    		Password: "<Mailtrap password>",
-    		To: document.getElementsByClassName("text")[2].value,
-    		From: "myclubswelly@gmail.com",
-    		Subject: "Test Email",
-    		Body: "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
-    	}).then(message => alert(message));
-    }
-
     function instance$9($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Join_Club', slots, []);
     	let { join } = $$props;
-    	sendEmail();
     	const writable_props = ['join'];
 
     	Object.keys($$props).forEach(key => {
@@ -2820,7 +2813,7 @@ var app = (function () {
     		if ('join' in $$props) $$invalidate(0, join = $$props.join);
     	};
 
-    	$$self.$capture_state = () => ({ join, sendEmail });
+    	$$self.$capture_state = () => ({ join });
 
     	$$self.$inject_state = $$props => {
     		if ('join' in $$props) $$invalidate(0, join = $$props.join);

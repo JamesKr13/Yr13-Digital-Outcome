@@ -19,9 +19,9 @@ class UserLoginForm(AuthenticationForm):
             'id': 'hi',
         }
 ))
-    
 class LoginForm(AuthenticationForm):
     """user login form"""
+    
     # email = forms.EmailField()
     # password = forms.CharField(widget=forms.PasswordInput(attrs={
     #             'class': 'form-control',
@@ -45,3 +45,4 @@ class LoginForm(AuthenticationForm):
             'id': 'hi',
         }
 ))
+    print(username,password)

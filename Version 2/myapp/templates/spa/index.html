@@ -67,7 +67,9 @@
         document.querySelector(".results-"+counter[1]+">.box >.resultlink > .result-"+counter[0] + ">.result-img").src = "../media/"+clubs[i][2]
         document.querySelector(".results-"+counter[1]+">.box >.resultlink > .result-"+counter[0] + " >.searchtext >.result-title").innerHTML = clubs[i][0]
         document.querySelector(".results-"+counter[1]+">.box >.resultlink > .result-"+counter[0] + ">.searchtext >.result-text").innerHTML = clubs[i][1]
-        console.log(document.querySelector(".result-"+counter[0] + ">.searchtext >.result-text"))
+        document.getElementsByClassName("resultlink")[counter[0]-1].setAttribute("href","/club/"+clubs[i][0])
+        console.log( document.querySelector(".results-"+counter[1]+">.box >.resultlink"))
+        console.log(clubs[i][0])
         counter[0] += 1
         
       }
@@ -79,6 +81,7 @@
   function send() {
     {% send_email 'bob' 'jamesckrichards@gmail.com' %}
   }
+ 
   function showElem(displayType) {
     console.log("is being"+displayType)
     document.querySelector(".loader span").style.display=displayType;
@@ -119,16 +122,20 @@
     var counter = 0;
     console.log("killme")
     console.log(all_clubs[0].innerHTML)
+    let car_text = document.getElementsByClassName("text");
     {% for club in clubs %}
-    console.log(counter)
-    console.log(all_clubs[counter].getElementsByTagName("h1")[0])
     
     if (counter!=3){
       console.log("{{ club.club_name }}")
     all_clubs[counter].getElementsByTagName("h1")[0].innerHTML = '{{ club.club_name }}';
     links[counter].setAttribute("href",'/club/{{ club.club_name }}');
     all_clubs[counter].getElementsByTagName("p")[0].innerHTML = '{{ club.breif }}';
-    counter+=1;}
+    counter+=1;} else {
+      car_text[counter].getElementsByTagName("h1")[0].innerHTML = "{{club.club_name}}";
+      car_text[counter].getElementsByTagName("p")[0].innerHTML = "{{club.breif}}"
+      console.log("it is {{club.club_name}}")
+      console.log(car_text[counter].getElementsByTagName("p"))
+    }
     
     {% endfor %}
     counter = 0
@@ -140,13 +147,23 @@
     
     {% endfor %}
     let carouselTags = document.getElementsByClassName("carousel-img")
+    let interest_button = document.getElementsByClassName("interest_button")
+    counter=2
+    {% for club in clubs %}
+    if (counter<=3){
+      interest_button[counter].setAttribute("href","/club/{{ club.club_name }}");
+      console.log("{{club.club_name}}")
+  }
+    counter+=1
+    {% endfor %}
     counter = 0
     {% for img in c_images %}
-    console.log("../media/{{ img.photo }}")
     if ("{{ img.photo }}" != "") {
       
       carouselTags[counter].src = '../media/{{ img.photo }}';
-      console.log(carouselTags[counter].src)
+      
+
+      console.log("bottom"+carouselTags[counter].src)
       }
       counter += 1
       {% endfor %}
@@ -161,7 +178,7 @@
       }
       counter +=1
       {% endfor %}
-      console.log( all_c_clubs[0]);
+      console.log("this "+all_c_clubs[0]);
       console.log( all_c_clubs[1]);
       console.log( all_c_clubs[2]);
     }
