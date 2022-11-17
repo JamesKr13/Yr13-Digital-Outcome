@@ -17,7 +17,7 @@ from django import template
 from .forms import ClubForm
 from accounts.models import CustomUser
 from django.contrib.auth.models import User
-
+from accounts.models import CustomUser
 from myapp.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 register = template.Library()
@@ -108,3 +108,8 @@ def club_form(request):
     else:
         form = ClubForm()
     return render(request, 'CreateAClub.html', {'form': form})
+
+
+
+# def delete(request, user):
+#     club = CustomUser.objects.filter()

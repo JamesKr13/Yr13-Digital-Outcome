@@ -54,8 +54,9 @@
     }
     .club {
         position: absolute;
-        top: 80%;
-        left: 15%;
+        top: 40%;
+        left:50%;
+        text-align: right;
         transform: translate(-50%, -50%);
         font-size: 5vw;
         background-color: rgba(60,60,60,0.9);

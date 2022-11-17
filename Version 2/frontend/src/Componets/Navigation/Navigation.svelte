@@ -11,8 +11,8 @@
 </script>
 
 <div class="Nav" style="margin-top:1vmax;">
-    <div class="links"><a href="None">Donation</a></div>
-    <div class="links"><a href="None">About</a></div>
+    <div class="links"><a href="/about/">Donation</a></div>
+    <div class="links"><a href="/about/">About</a></div>
     <div class="links"><a href="/home/">Home</a></div>
     {#if decodeURIComponent(document.cookie).includes("login=false")}
     <div class="links"><a href="/accounts/login/" on:click={login}>Login</a></div>
@@ -42,11 +42,9 @@
         margin-top:1vmax;
         padding: 0;
     }
-    .email {
-        text-align: right;
-    }
+    
     .user-info {
-        width: 10vmax;
+        width: auto;
         height: 3vmax;
         margin:1vmax;
         display: flex;
@@ -55,6 +53,8 @@
         margin-left: auto;
         margin-right: 6vmax;
         text-align: right;
+        font-weight: bold;
+
     }
     .Profile-Pic {
         border-radius: 100vmax;
@@ -158,6 +158,9 @@
         flex-wrap: nowrap;
         color:black;
     }   
+    .email {
+        text-align: right;
+    }
     * {
 margin: 0;
 padding: 0;

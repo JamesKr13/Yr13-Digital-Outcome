@@ -9,10 +9,12 @@
     import ClubPage from "./Componets/Club_page/club_page.svelte";
     import LoadingDot from "./Componets/LoadingDots/LoadingDot.svelte";
     import Results from "./Componets/Results/Results.svelte";
+    import About from "./Componets/About/About.svelte";
 </script>
 <!-- <div class="Box"> -->
 <Navigation/>
 {#if window.location.href.includes("home")}
+
 <Carousel/>
 <SearchBar/>
 <LoadingDot/>
@@ -24,6 +26,9 @@
 {/if}
 {#if window.location.href.includes("club")}
 <ClubPage/>
+{/if}
+{#if window.location.href.includes("about")}
+<About/>
 {/if}
 <Footer/>
 <!-- </div> -->

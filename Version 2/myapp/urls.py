@@ -12,6 +12,10 @@ from django.conf import settings
 from django.conf.urls.static import static 
 from Club.views import club_form
 from emailsystem.views import emailing
+from django.shortcuts import render
+   
+def render_about(request):
+    return render(request,"spa/about.html")
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("home/", SpaView, name="spa"),
@@ -31,6 +35,7 @@ urlpatterns = [
     path('email/<str:email>-<str:name>-<str:from>',emailing),
     path("logout/", logout_user,name="logout"),
     path("Create-Club/", club_form, name='form'),
+    path("about/",render_about),
     path("accounts/", include("django.contrib.auth.urls")), 
     # path("Images/",index, name="Images")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

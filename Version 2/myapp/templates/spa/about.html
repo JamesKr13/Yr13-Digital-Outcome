@@ -1,0 +1,49 @@
+
+{% extends "../spa/index.html" %}
+{% load static %}
+<!doctype html>
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</html>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Palanquin&display=swap');
+  * {
+    font-family:'Palanquin', sans-serif;
+    {% comment %} color: ; {% endcomment %}
+}
+.Image_1 {
+  width: 100%;
+}
+img {
+  object-fit: cover;
+}
+#main {
+  height: 50vh;
+  width: 50vw;
+}
+#central_text {
+  position: absolute;
+  color: #E8E8E8;
+  background-color: rgba(51, 51, 51,0.7);
+  padding: 2%;
+  padding-left: 8%;
+  padding-right:8%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  font-size: 5vmax;
+}
+</style>
+
+<script>
+</script>
+
+{% comment %} <style>body {
+    background-color: red;  
+} {% endcomment %}
+{% comment %} </style> {% endcomment %}

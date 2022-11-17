@@ -5,20 +5,20 @@
 <footer>
     <ul class="footer-goups">
         <h1>Help</h1>
-        <li class="help"><a href="">How Do I Start a Club</a></li>
-        <li class="help"><a href="">How Do I Get Registered As a Owner</a></li>
-        <li class="help"><a href="">Other Stuff</a></li>
+        <li class="help"><a href="/about/">How Do I Start a Club</a></li>
+        <li class="help"><a href="/about/">How Do I Get Registered As a Owner</a></li>
+        <li class="help"><a href="/about/">Other Stuff</a></li>
     </ul>
     <ul class="footer-goups">
         <h1>About</h1>
-        <li class="about"><a href=""></a>About Us</li>
-        <li class="about"><a href="">Your community</a></li>
-        <li class="about"><a href="">Gettign Involved</a></li>
+        <li class="about"><a href="/about/"></a>About Us</li>
+        <li class="about"><a href="/about/">Your community</a></li>
+        <li class="about"><a href="/about/">Getting Involved</a></li>
     </ul>
     <ul class="footer-goups">
         <h1>Report</h1>
-        <li class="report"><a href="">Report Club</a></li>
-        <li class="report"><a href="">Report a User</a></li>
+        <li class="report"><a href="/about/">Report Club</a></li>
+        <li class="report"><a href="/about/">Report a User</a></li>
     </ul>
 </footer>
 

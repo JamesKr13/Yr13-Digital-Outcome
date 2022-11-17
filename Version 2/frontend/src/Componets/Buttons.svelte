@@ -1,4 +1,6 @@
 <script>
+    import { loop_guard } from "svelte/internal";
+
     export let interest_button;
 </script>
 <button class="interest_button"><p>I'm Interested</p>

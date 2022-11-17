@@ -31,10 +31,10 @@
         <div class="A">
             <div id="bottom-nav">
                 <div class="info">
-                    <h1>test stuff</h1>
-                    <p>this is a test</p>
+                    
                 </div>
                 <Button/>
+                <h1 class="club"></h1>
             </div>
         </div>
     </div>
@@ -42,19 +42,19 @@
         <div class="A">
             <div id="bottom-nav">
                 <div class="info">
-                    <h1>test stuff</h1>
-                    <p>this is a test</p>
+
                 </div>
                 <Button/>
+                <h1 class="club"></h1>
             </div>
         </div>
     </div>
     <div><img class="carousel-img" src="" alt="stuff">
         <div class="A"><div id="bottom-nav">
             <div class="info">
-                <h1>test stuff</h1>
-                    <p>this is a test</p>
+               
             </div>
+            <h1 class="club"></h1>
             <Button/></div></div></div>
     <div slot="next" on:click={showNextPage} class="custom-arrow custom-arrow-next">
         <i />
@@ -69,6 +69,9 @@
     @import url('https://fonts.googleapis.com/css2?family=Palanquin&display=swap');
     .A{
         margin-top: 75vh;
+        width: 100%;
+        min-height: 100vh;
+        position: absolute;
     }
     * {
         font-family:'Palanquin', sans-serif;
@@ -86,6 +89,7 @@
     #info {
         position: absolute;
         background-color: #3C3C3C;
+        display: none;
         opacity: 80%;
         width: 48vw;
         height: 25vh;
@@ -125,4 +129,21 @@
         flex-direction: column;
         
     } */
+    .club {
+        position: absolute;
+        top: 10%;
+        margin-top: -20vmax;
+        left:50%;
+        text-align: right;
+        z-index:1000;
+        transform: translate(-50%, -50%);
+        font-size: 5vw;
+        background-color: rgba(60,60,60,0.9);
+        padding: 3vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        width:auto;
+        color: #fff;
+        text-decoration: underline;
+    }
 </style>
