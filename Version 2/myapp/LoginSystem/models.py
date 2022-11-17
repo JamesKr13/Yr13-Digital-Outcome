@@ -19,3 +19,29 @@ class UserLoginForm(AuthenticationForm):
             'id': 'hi',
         }
 ))
+    
+class LoginForm(AuthenticationForm):
+    """user login form"""
+    # email = forms.EmailField()
+    # password = forms.CharField(widget=forms.PasswordInput(attrs={
+    #             'class': 'form-control',
+    #             'placeholder': 'Password',
+    #         }))
+    # username = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             'class': 'form-control',
+    #             'placeholder': 'UserName',
+    #         }))
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+    print("Running")
+    username = UsernameField(widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': '', 'id': 'hello'}))
+    password = forms.CharField(widget=forms.PasswordInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': '',
+            'id': 'hi',
+        }
+))

@@ -7,7 +7,7 @@ from django.contrib.auth import views as auth_views
 from myapp.register import views
 from myapp.LoginSystem.views import logout_user
 from Club.views import load_clubs
-from myapp.LoginSystem.models import UserLoginForm
+from myapp.LoginSystem.models import LoginForm
 from django.conf import settings
 from django.conf.urls.static import static 
 urlpatterns = [
@@ -17,15 +17,16 @@ urlpatterns = [
     # path("login/", auth_views.LoginView.as_view(),name='login'),
     # path('login/', include(''))
     path(
-        'login/',
+        'accounts/login/',
         auth_views.LoginView.as_view(
             template_name="login.html",
-            authentication_form=UserLoginForm
+            authentication_form=LoginForm
             ),
         name='login'
 ),
     path("register/", views.register_request, name="register"),
     path('club/<str:name>', load_clubs, name = "club"),
     path("logout/", logout_user,name="logout"),
+    path("accounts/", include("django.contrib.auth.urls")), 
     # path("Images/",index, name="Images")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

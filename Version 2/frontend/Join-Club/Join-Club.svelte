@@ -1,9 +1,25 @@
-<script>
+<script src="https://smtpjs.com/v3/smtp.js">
+        export let join ;
 
-    export let join ;
+function sendEmail() {
+    alert("sedning")
+    Email.send({
+        Host : "smtp.mailtrap.io",
+        Username : "David Mcgunigiall",
+        Password : "<Mailtrap password>",
+        To : document.getElementsByClassName("text")[2].value,
+        From : "myclubswelly@gmail.com",
+        Subject : "Test Email",
+        Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+    }).then(
+    message => alert(message)
+    );
+    
+}
+sendEmail()
 </script>
 <div class="Join">
-    <h1 class="join">Join:</h1>
+    <h1 class="join_info">Join:</h1>
     <p class="messege">Send a messege of your interest to this Club</p>
     <div class="join_space">
         <ul class="entries">
@@ -14,7 +30,7 @@
         <ul class="user_inputs">
             <input type="text" class="inputs"><input type="text" class="inputs"><input type="text" class="inputs">
         </ul>
-        <button class="go">Submit</button>
+        <button class="go" onclick="sendEmail" >Submit</button>
         <!-- <div class="first_name">
             <p id="first_name">First Name:</p>
             <textarea name="" id="" cols="30" rows="1" class="entername"></textarea>
@@ -39,7 +55,7 @@
         background-color: #fff;
         padding: 2vmax;
         border-radius: 5vmax;
-        margin-bottom: 7vmax;
+        margin-bottom: 0vmax;
         margin-top:5vmax;
     }
     .go {
@@ -59,13 +75,11 @@
         
         color: #2E1C40;
     }
-    .join, .messege {
+    .join_info, .messege {
         font-family: 'Palanquin Dark', sans-serif;
         font-size: 4vmax;
     }
-    .join {
-        margin-bottom: -3vmax;
-    }
+
     .type {
         font-family: 'Chivo', sans-serif;
         font-size:4vh;
@@ -74,6 +88,7 @@
     .join_space {
         display:flex;
         flex-direction: row;
+        position: absolute;
     }
     ul {
         list-style-type: none;

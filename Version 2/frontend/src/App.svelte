@@ -7,12 +7,18 @@
     import Footer from "./Componets/Footer/Footer.svelte";
     import CarouselInfoBox from "./Componets/Info-Box/Carousel-Info-Box.svelte";
     import ClubPage from "./Componets/Club_page/club_page.svelte";
+    import LoadingDot from "./Componets/LoadingDots/LoadingDot.svelte";
+    import Results from "./Componets/Results/Results.svelte";
 </script>
 <!-- <div class="Box"> -->
 <Navigation/>
 {#if window.location.href.includes("home")}
 <Carousel/>
 <SearchBar/>
+<LoadingDot/>
+<div class="results-1" id="one"><Results/></div>
+<div class="results-2" id="two"><Results/></div>
+<div class="results-3" id="three"><Results/></div>
 <Suggest/>
 <UpComming/>
 {/if}
@@ -28,6 +34,9 @@ margin: 0;
 padding: 0;
 background-color: #E8E8E8;
 
+}
+.results-1,.results-2,.results-3 {
+    display: none;
 }
 .box {
     background-color: none;

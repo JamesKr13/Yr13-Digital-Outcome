@@ -1,18 +1,25 @@
 <script></script>
 
 <div class="box">
+    <a class="suggestlink" href="/None/">
     <div class="suggest">
         <img class="suggest-img" src="" alt="">
         <div class="text"><h1 class="sub-title"></h1><p class="sub-text"></p></div>
     </div>
+</a>
+    <a class="suggestlink" href="/None/">
     <div class="suggest">
         <img class="suggest-img" src="" alt="">
         <div class="text"><h1 class="sub-title"></h1><p class="sub-text"></p></div>
+        
     </div>
-    <div class="suggest">
+</a>
+    <a class="suggestlink" href="/some/"><div class="suggest">
         <img class="suggest-img" src="" alt="">
+        
         <div class="text"><h1 class="sub-title"></h1><p class="sub-text"></p></div>
     </div>
+</a>
 </div>
 
 <style>

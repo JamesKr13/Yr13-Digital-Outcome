@@ -22,7 +22,7 @@ import {clickOutside} from "../JS_fn/JS_fn.js"
 		suggestion=false
 	}
 </script>
-<div class="Text">Discover New</div>
+<div class="discover">Discover New</div>
 <form>
     <input type="text" placeholder="Search..." id="Search-Bar" on:click="{() => suggestion = true}"/>
     <div>
@@ -35,7 +35,7 @@ import {clickOutside} from "../JS_fn/JS_fn.js"
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Palanquin&display=swap');
     
-    .Text{
+    .discover{
         text-align: center;
         margin-top: 15vmax;
         font-family:'Palanquin', sans-serif;

@@ -1,5 +1,15 @@
 {% load static %}
+{% load management_tags %}
 
+{% if user.is_authenticated %}
+    <script type="text/javascript">
+      document.cookie = "login=true";
+     </script>
+{% else %}
+<script type="text/javascript">
+  document.cookie = "login=false";
+ </script>
+{% endif %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,17 +41,95 @@
 </html>
 
 <script>
+  function searching() {
+    console.log(0)
+  }
+  //This function runs when user has finished writing in input
+  function finished_typing () {
+    showElem("None");
+    const user_input_string = document.getElementById("Search-Bar").value
+    var clubs = {{ user_input_string|Search}}
+    var club_by_result = [];
+    console.log(clubs)
+    var counter = [1,1]
+    if (user_input_string!="") {
+    for (const i in clubs) {
+      var check = clubs[i][0].toLowerCase();
+      if (check.includes(user_input_string) && counter[1]!=4) {
+        club_by_result.push(clubs[i])
+        if (counter[0] == 4) {
+          counter[0] = 1
+          counter[1] +=1
+        }
+        console.log(counter)
+        document.getElementsByClassName("results-"+counter[1])[0].style.display="block";
+        document.querySelector(".results-"+counter[1]+">.box >.resultlink > .result-"+counter[0]).style.display="flex"
+        document.querySelector(".results-"+counter[1]+">.box >.resultlink > .result-"+counter[0] + ">.result-img").src = "../media/"+clubs[i][2]
+        document.querySelector(".results-"+counter[1]+">.box >.resultlink > .result-"+counter[0] + " >.searchtext >.result-title").innerHTML = clubs[i][0]
+        document.querySelector(".results-"+counter[1]+">.box >.resultlink > .result-"+counter[0] + ">.searchtext >.result-text").innerHTML = clubs[i][1]
+        console.log(document.querySelector(".result-"+counter[0] + ">.searchtext >.result-text"))
+        counter[0] += 1
+        
+      }
+    }
+    console.log(club_by_result)
+  }
 
+  }
+  function send() {
+    {% send_email 'bob' 'jamesckrichards@gmail.com' %}
+  }
+  function showElem(displayType) {
+    console.log("is being"+displayType)
+    document.querySelector(".loader span").style.display=displayType;
+    document.querySelector(".loader span:nth-of-type(2)").style.display=displayType;
+    document.querySelector(".loader span:nth-of-type(3)").style.display=displayType;
+    document.querySelector(".loader span:nth-of-type(4)").style.display=displayType;
+}
   function load() {
+    {% if user.is_authenticated %}
+    document.querySelector(".user-info > .username").innerHTML = "{{user.username}}"
+    if ("{{ user.email }}" != "") {
+    document.querySelector(".user-info > .email").innerHTML = "{{user.email}}"
+    }
+    if ("{{ user.club }}"!="None") {
+      document.querySelector(".Login-Nav > .dropdown-content").getElementsByTagName("a")[1].innerHTML = "Go to {{user.club}}"
+      document.querySelector(".Login-Nav > .dropdown-content").getElementsByTagName("a")[1].setAttribute("href","club/{{user.club.name}}/")
+    }
+    {% endif %}
     if (window.location.href.includes("home")) {
+      var type_timer;
+      var finished_writing_interval =1500;
+      var my_input = document.getElementById("Search-Bar");
+      //Start timeout when user start typing
+      my_input.addEventListener('keyup', function () {
+        showElem("inline-block");
+        clearTimeout(type_timer);
+        type_timer = setTimeout(finished_typing, finished_writing_interval);
+      });
+      
+      //Clear timeout on key down event
+      my_input.addEventListener('keydown', function () {
+        clearTimeout(type_timer);
+      });
+      
     let all_clubs = document.getElementsByClassName("text")
     let imgsTags = document.getElementsByClassName("suggest-img")
+    var links = document.getElementsByClassName("suggestlink")
     var counter = 0;
+    console.log("killme")
+    console.log(all_clubs[0].innerHTML)
     {% for club in clubs %}
+    console.log(counter)
     console.log(all_clubs[counter].getElementsByTagName("h1")[0])
+    
+    if (counter!=3){
+      console.log("{{ club.club_name }}")
     all_clubs[counter].getElementsByTagName("h1")[0].innerHTML = '{{ club.club_name }}';
+    links[counter].setAttribute("href",'/club/{{ club.club_name }}');
     all_clubs[counter].getElementsByTagName("p")[0].innerHTML = '{{ club.breif }}';
-    counter+=1;
+    counter+=1;}
+    
     {% endfor %}
     counter = 0
     {% for img in images %}
@@ -64,9 +152,13 @@
       {% endfor %}
       let all_c_clubs = document.getElementsByClassName("info");
       counter = 0
+      links = document.getElementsByClassName("carouselfsuggestlink")
       {% for c in c_clubs %}
+      if (counter!=3) {
       all_c_clubs[counter].getElementsByTagName("h1")[0].innerHTML = '{{ c.club_name }}';
       all_c_clubs[counter].getElementsByTagName("p")[0].innerHTML = '{{ c.breif }}';
+      links[counter].setAttribute("href",'/club/{{ c.club_name }}');
+      }
       counter +=1
       {% endfor %}
       console.log( all_c_clubs[0]);
@@ -90,3 +182,14 @@
   }
   
 </script>
+<style>
+  a:hover {
+    text-decoration:None;
+  }
+  a {
+    color: inherit;
+  }
+  a:visited, a:link,a, a:active {
+    color: inherit;
+  }
+</style>

@@ -31,6 +31,7 @@
         flex-direction: row;
         background-color: #444141;
         justify-content: space-evenly;
+        position: relative;
     }
     * {
         font-family:'Palanquin', sans-serif;

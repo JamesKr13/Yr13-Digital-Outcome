@@ -5,7 +5,7 @@ from django.core import serializers
 from django.shortcuts import render
 from .models import Image,Clubs,ClubImage
 from json import dumps
-
+from django.template.defaultfilters import stringfilter
 # Create your views here.
 from django.views.generic import TemplateView
 from django.template.response   import TemplateResponse
@@ -15,6 +15,9 @@ from django.template import loader
 from .models import Clubs,ClubImage
 from django import template
 
+
+from myapp.settings import EMAIL_HOST_USER
+from django.core.mail import send_mail
 register = template.Library()
 
 
@@ -47,9 +50,9 @@ class ClubView(TemplateView):
         return HttpResponse(t.render(c, request))
 
 def get_random_club(request):
-    all_data = Clubs.objects.order_by('?')[:9]
-    data = all_data[0:6]
-    c_data = all_data[6:9]
+    all_data = Clubs.objects.order_by('?')[:10]
+    data = all_data[0:7]
+    c_data = all_data[6:10]
     image = []
     for club in data:
         try:
@@ -65,7 +68,27 @@ def get_random_club(request):
     return render(request,'spa/index.html',{"clubs": data,"images": image,"c_clubs": c_data,"c_images":c_images})
        
         
-
+def intrest(request):
+    sub = forms.Interest()
+    if request.method == 'POST':
+        sub = forms.Interest(request.POST)
+        subject = 'Someone shown interest in your club'
+        message = 'You ha'
+        recepient = str(sub['Email'].value())
+        send_mail(subject, 
+            message, EMAIL_HOST_USER, [recepient], fail_silently = False)
+        return render(request, 'subscribe/success.html', {'recepient': recepient})
+    return render(request, 'subscribe/index.html', {'form':sub})
     # def post_clubs(request):
     #     if request.is_ajax() and request.method == "POST":
     #         club = Clubs(request.POST)
+
+# register.filter("search",search)
+def searching(request,string):
+    clubs = Clubs.objects.all()
+    c_data = {}
+    i_data = []
+    for club in clubs:
+        if string.lower() in club.club_name.lower():
+            i_data.append(club)
+    return render(request,'spa/index.html',{"clubs": i_data})

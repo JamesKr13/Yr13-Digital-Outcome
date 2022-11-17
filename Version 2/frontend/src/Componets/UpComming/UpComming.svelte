@@ -24,18 +24,26 @@
     <div slot="prev" on:click={showPrevPage} class="custom-arrow custom-arrow-prev">
         <i class="fa-solid fa-angle-left fa-7x"></i>
         </div>
+        <a class="carouselfsuggestlink" href="/None/">
+    <div class="suggest">
+        <div class="text"><h1></h1><p></p></div>
+        <img class="suggest-img" src="" alt="">
+        
+    </div>
+</a>
+<a class="carouselfsuggestlink" href="/None/">
     <div class="suggest">
         <div class="text"><h1></h1><p></p></div>
         <img class="suggest-img" src="" alt="">
     </div>
+</a>
+<a class="carouselfsuggestlink" href="/None/">
     <div class="suggest">
         <div class="text"><h1></h1><p></p></div>
         <img class="suggest-img" src="" alt="">
+        
     </div>
-    <div class="suggest">
-        <div class="text"><h1></h1><p></p></div>
-        <img class="suggest-img" src="" alt="">
-    </div>
+</a>
     <div slot="next" on:click={showNextPage} class="custom-arrow custom-arrow-next">
         <i class="fa-solid fa-angle-right fa-7x"></i>
     </div>

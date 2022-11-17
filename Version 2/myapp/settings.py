@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "myapp.register.apps",
     "crispy_forms",
     "Club",
+    "emailsystem",
+    "accounts",
     # "Club.load_clubs"
 ]
 
@@ -58,12 +60,18 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+AUTH_USER_MODEL = "accounts.CustomUser"
+AUTHENTICATION_BACKENDS = [
+    # 'accounts.authback.EmailBackend',
+    "django.contrib.auth.backends.ModelBackend", # this line fixed my problem
+]
+
 CRISPY_TEMPLATE_PACK="bootstrap4"
 ROOT_URLCONF = "myapp.urls"
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-LOGIN_REDIRECT_URL = 'home/'
-LOGOUT_REDIRECT_URL = "home/"
+LOGIN_REDIRECT_URL = '/home/'
+LOGOUT_REDIRECT_URL = "/home/"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -178,3 +186,10 @@ LOGGING = {
         },
     },
 }
+#DataFlair
+EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'myclubswelly@gmail.com'
+EMAIL_HOST_PASSWORD = 'MyClub@Welly123'
